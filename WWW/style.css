@@ -1,0 +1,91 @@
+/* Hide collapsible sections by default */
+#collapsible_sections,
+#metadata_card_body,
+#filters_card_body,
+#data_card_body {
+  display: none;
+}
+
+/* Login card header */
+.login-card-header {
+  background-color: var(--bs-primary);
+  color: white;
+  text-align: center;
+}
+
+/* Toggle buttons (light and dark variants) */
+.toggle-btn-light {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.toggle-btn-light:hover {
+  background-color: white;
+  color: var(--bs-info);
+}
+
+.toggle-btn-dark {
+  background-color: transparent;
+  border: 1px solid #212529;
+  color: #212529;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.toggle-btn-dark:hover {
+  background-color: #212529;
+  color: white;
+}
+
+
+/* One consistent header style */
+.section-card-header {
+  background-color: #2596be;   /* 🔹 set your chosen color here */
+  color: white;                /* text colour */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+/* Override Bootstrap's radio button styling */
+.form-check-input[type="radio"] {
+  opacity: 1;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid #555; /* Darker border for non-selected state */
+  border-radius: 50%;
+  margin-top: 0.2em;
+}
+
+/* Style the checked state */
+.form-check-input[type="radio"]:checked {
+  background-color: #007bff; /* Bootstrap primary color */
+  border-color: #007bff;
+}
+
+/* Optional: Darker border on hover */
+.form-check-input[type="radio"]:hover {
+  border-color: #333;
+}
+
+/* Style all DT table headers */
+table.dataTable thead th {
+  background-color: #4CAF50 !important; /* green background */
+  color: white !important;               /* white text */
+  font-weight: bold !important;
+  text-align: center !important;
+}
+
+/* Optional: hover effect for headers */
+table.dataTable thead th:hover {
+  background-color: #45a049 !important;
+  cursor: pointer;
+}
