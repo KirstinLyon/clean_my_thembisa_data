@@ -77,7 +77,8 @@ ui <- page_fillable(
       HTML(
         "<strong>Instructions for Downloading Data:</strong><br>
     &bull; The default download buttons export <strong>the visible data</strong>. To download everything, please use the
-    <strong> Download All as CSV </strong> button. <br><br>"
+    <strong> Download All as CSV </strong> button. <br>
+       &bull; The dataset is large and takes a few minutes to load. <br>"
       )
     ),
     # Button aligned to the top-right
