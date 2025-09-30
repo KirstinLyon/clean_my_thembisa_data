@@ -60,41 +60,9 @@ ui <- page_fillable(
       h1("Thembisa Project Data")
     ),
     
-    helpText(
-      HTML(
-        paste0(
-          "Data source: <strong>Thembisa Project</strong> - ",
-          "Age-specificOutputs4.8_final2.<br>",
-          "For more information, visit ",
-          "<a href='https://thembisa.org/' target='_blank'>thembisa.org</a>."
-        )
-      )
-    ),
-    
-    
-    
-    helpText(
-      HTML(
-        "<strong>Instructions for Downloading Data:</strong><br>
-    &bull; The default download buttons export <strong>the visible data</strong>. To download everything, please use the
-    <strong> Download All as CSV </strong> button. <br>
-       &bull; The dataset is large and takes a few minutes to load. <br>"
-      )
-    ),
-    # Button aligned to the top-right
-    div(
-      style = "display: flex; justify-content: flex-start; margin-bottom: 10px;",
-      downloadButton(
-        outputId = "download_all",
-        label = "Download All as CSV",
-        class = "btn btn-warning"  # Yeti primary, small button
-      )
-    ),
-
-    
     # Intro text + indicators in a row separated by dots
     div(
-      style = "padding: 10px; color: #1B3A4B; font-size: 16px; line-height: 2;",
+      style = "padding: 10px; color: #1B3A4B; font-size: 14px; line-height: 2;",
       HTML(
         paste0(
           "<strong>The following indicators are available:</strong><br> ",
@@ -114,11 +82,44 @@ ui <- page_fillable(
         )
       )
     ),
+    
+    div(
+      style = "padding: 10px; color: #1B3A4B; font-size: 14px; line-height: 2;",
+
+
+      HTML(
+        "The default download buttons export <strong>the visible data</strong>. To download everything, please use the
+    <strong> Download All as CSV </strong> button. <br>"
+      )
+    ),
+    # Button aligned to the top-right
+    div(
+      style = "display: flex; justify-content: flex-end; margin-bottom: 10px;",
+      downloadButton(
+        outputId = "download_all",
+        label = "Download All as CSV",
+        class = "btn btn-warning"  # Yeti primary, small button
+      )
+    ),
+
+    
+
 
     # Table (fills remaining space)
     div(
       style = "flex: 1; display: flex; flex-direction: column; overflow: hidden;",
       DTOutput("indicator_metadata_table", width = "100%", height = "100%")
+    ),
+    
+    helpText(
+      HTML(
+        paste0(
+          "Data source: <strong>Thembisa Project</strong> - ",
+          "Age-specificOutputs4.8_final2. ",
+          "For more information, visit ",
+          "<a href='https://thembisa.org/' target='_blank'>thembisa.org</a>."
+        )
+      )
     )
     
 
