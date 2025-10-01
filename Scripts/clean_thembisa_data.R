@@ -4,23 +4,14 @@
 # LICENSE:  MIT
 # DATE: 2025-09-30
 
-
-library(janitor)
-library(readxl)
-library(tidyr)
-library(dplyr)
-library(purrr)
-library(stringr)
-library(readr)
-
-
-#options(scipen = 999)  # remove scientific notation
-source("Scripts/utils.R") # all functions stored here
+library(thembisaR)
 
 FILENAME <- "./Data/Age-specificOutputs4.8_final2.xlsx"
+sheets_to_exclude <- c("Notes")
 
-all_data <- read_all_data(FILENAME)
-write_csv(all_data, "./Dataout/all_data.csv")
+all_data <- thembisaR::read_sex_age_specific_file(FILENAME, sheets_to_exclude)
 
 
-unique(all_data$indicator)
+
+
+

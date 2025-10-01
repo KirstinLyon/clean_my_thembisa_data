@@ -1,25 +1,18 @@
 library(bslib)
 library(dplyr)
 library(DT)
-library(janitor)
-library(purrr)
-library(readxl)
-library(readr)
 library(rsconnect)
 library(shiny)
 library(shinyjs)
 library(shinyWidgets)
-library(stringr)
-library(tidyr)
-
-#options(scipen = 999)  # remove scientific notation
-source("Scripts/utils.R") # all functions stored here
+library(thembisaR)
 
 
-#TODO replace with an uploaded file
+#Fixed file
 FILENAME <- "./Data/Age-specificOutputs4.8_final2.xlsx"
 
 
+#Dataset function
 get_data <- function(filename){
   
   indicator_whole <- c("Population", "On art", "Diagnosed with hiv",
@@ -27,7 +20,7 @@ get_data <- function(filename){
                        "Births to hiv-positive mothers, by maternal age at start of year"
   )
   
-  read_all_data(filename) |> 
+  thembisaR::read_sex_age_specific_file(filename) |> 
     rename(Age = age,
            Indicator = indicator,
            Sex = sex,
@@ -46,9 +39,24 @@ get_data <- function(filename){
 }
 
 
-
+# Define UI for application
 ui <- page_fillable(
   theme = bs_theme(bootswatch = "yeti"),
+  
+  # Top "header" row
+  fluidRow(
+    column(
+      width = 12,
+      style = "text-align: right; padding: 10px;",
+      tags$a(
+        href = "https://www.mltwelve.com",
+        icon("globe"),  # pick any Font Awesome icon
+        " About me",
+        target = "_blank",
+        style = "font-size: 16px; text-decoration: none; margin-right: 15px;"
+      )
+    )
+  ),
   
   # Full-page flex column
   div(
@@ -57,7 +65,7 @@ ui <- page_fillable(
     # Header (fixed height)
     div(
       style = "background-color: #2C5364; color: white; text-align: center; padding: 20px;",
-      h1("Thembisa Project Data")
+      h1("Thembisa Data (Version 4.8)")
     ),
     
     # Intro text + indicators in a row separated by dots
@@ -126,7 +134,7 @@ ui <- page_fillable(
 ))
 
 
-
+# Define server logic
 server <- function(input, output, session) {
   
   output$download_all <- downloadHandler(
