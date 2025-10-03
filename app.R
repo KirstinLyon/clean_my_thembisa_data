@@ -65,7 +65,7 @@ ui <- page_fillable(
     # Header (fixed height)
     div(
       style = "background-color: #2C5364; color: white; text-align: center; padding: 20px;",
-      h1("Thembisa Data (Version 4.8)")
+      h1("Thembisa Estimates (Version 4.8)")
     ),
     
     # Intro text + indicators in a row separated by dots
@@ -122,7 +122,7 @@ ui <- page_fillable(
     helpText(
       HTML(
         paste0(
-          "Data source: <strong>Thembisa Project</strong> - ",
+          "Data source: <strong>Thembisa Estimates</strong> - ",
           "Age-specificOutputs4.8_final2. ",
           "For more information, visit ",
           "<a href='https://thembisa.org/' target='_blank'>thembisa.org</a>."
@@ -139,7 +139,7 @@ server <- function(input, output, session) {
   
   output$download_all <- downloadHandler(
     filename = function() {
-      paste0("thembisa_all_data_", Sys.Date(), ".csv")
+      paste0("thembisa_estimates_all_data_", Sys.Date(), ".csv")
     },
     content = function(file) {
       readr::write_csv(get_data(FILENAME), file)  # writes CSV without row names
@@ -164,13 +164,13 @@ server <- function(input, output, session) {
           buttons = list(
             list(
               extend = "csv",
-              filename = paste0("thembisa_data_", Sys.Date())#,
+              filename = paste0("thembisa_estimates_data_", Sys.Date())#,
               # Include today's date
         #           exportOptions = list(modifier = list(page = "all"))
             ),
             list(
               extend = "excel",
-              filename = paste0("thembisa_data_", Sys.Date())#,
+              filename = paste0("thembisa_estimates_data_", Sys.Date())#,
               # Include today's date
          #         exportOptions = list(modifier = list(page = "all"))
             )#,
